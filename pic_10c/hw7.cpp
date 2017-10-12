@@ -25,6 +25,10 @@ int main(){
     int money_afterbet;
     int bet;
     Card c1;
+    string card_rank_span = c1.get_spanish_rank();
+    string card_rank_eng = c1.get_english_rank();
+    string card_suit_span = c1.get_spanish_suit();
+    string card_suit_eng = c1.get_english_suit();
     
     cout<<"You have $100. Enter bet: ";
     cin>>bet;
@@ -32,6 +36,7 @@ int main(){
         cout<<"You don't have so many money! Please enter a smaller amount:";
         cin>>bet;
     }
+    
     
     
     
