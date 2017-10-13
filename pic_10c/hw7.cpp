@@ -25,6 +25,9 @@ int main(){
     int money_current = player.get_money();
     int bet;
     char yesno;
+    ofstream fout;
+    fout.open("log.txt");
+    int round = 1;
     
     
     //each while loop indicates one turn of game
@@ -41,6 +44,9 @@ int main(){
             cin>>bet;
         }
         
+        //print to file the initial part
+        fout<<"----------------------------------------------\n"<<"Card number:"<<round<<setw(10)<<"Money left: $"<<money_current<<endl<<"Bet: "<<bet<<endl<<endl;
+        
         //set hands and cards
         Hand plyr_hand,dlr_hand;
         plyr_hand.add_card(Card());
@@ -56,7 +62,7 @@ int main(){
         cout<< "Your total is "<<plyr_total<<". Do you want another card (y/n)?";
         cin>>yesno;
        
-        //if the bet exceeds the money the player has
+        //if the player want more cards
         while (yesno == 'y' || yesno =='Y'){
             plyr_hand.add_card(Card());
             ++index_card;
@@ -71,6 +77,11 @@ int main(){
             cin>>yesno;
         }
         
+        //print to file
+        fout<<endl<<"Your cards:\n";
+        fout<<plyr_hand;
+        fout<<"Your total: "<<plyr_total<<". \n\n";
+        
         //dealer's turn
         dlr_hand =  dlrs_turn();
         dlr_total = dlr_hand.get_value();
@@ -80,6 +91,12 @@ int main(){
         dlr_hand.print();
         cout<<"Dealer's total is "<<dlr_total<<"."<<endl;
        
+        
+        //print dealer's case to file
+        fout<<endl<<"Dealer's cards:\n";
+        fout<<dlr_hand;
+        fout<<"Dealer's total is "<<dlr_total<<". \n\n";
+        
         
         
         if (plyr_total < 7.6)//same as <=7.5
@@ -105,6 +122,11 @@ int main(){
         }
     }
     
+    
+    //file recording ends
+    fout<<"----------------------------------------------\n";
+    fout.close();
+    
     //output the final results
     if (money_current <100) //same as <1
     {
@@ -114,7 +136,8 @@ int main(){
     {
            cout<<"Congratulations. You beat the casino!\n\nBye!\n";
     }
-        
+    
+    
     return 0;
 
 

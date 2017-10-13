@@ -54,6 +54,7 @@ class Card {
     
     //print function
     void print() const;
+    //void printf(fstream &fout) const;
     
     //function retuning the numeric value of the card
     double get_value() const;
@@ -75,6 +76,7 @@ class Hand {
     Card get_card(int index) const;
     size_t get_size() const;
     void print() const;
+    //void printf(fstream &fout) const;
     double get_value() const;
 
 
@@ -102,4 +104,5 @@ class Player {
 
 //other function declarations:
 Hand dlrs_turn();
+ostream& operator<<(ostream& fout, Hand h);
 #endif

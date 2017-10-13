@@ -52,16 +52,16 @@ string Card::get_spanish_suit() const {
    switch (suit) {
       case OROS: 
          suitName = "oros"; 
-	 break;
+     break;
       case COPAS: 
          suitName = "copas"; 
-	 break; 
+     break; 
       case ESPADAS: 
          suitName = "espadas"; 
-	 break;
+     break;
       case BASTOS: 
          suitName = "bastos"; 
-	 break; 
+     break; 
       default: break;
    }
    return suitName;
@@ -73,34 +73,34 @@ string Card::get_spanish_rank() const {
    switch (rank) {
       case AS:
          rankName = "As"; 
-	 break; 
+     break; 
       case DOS: 
          rankName = "Dos"; 
-	 break; 
+     break; 
       case TRES: 
          rankName = "Tres"; 
-	 break; 
+     break; 
       case CUATRO: 
          rankName = "Cuatro"; 
-	 break; 
+     break; 
       case CINCO: 
          rankName = "Cinco"; 
-	 break; 
+     break; 
       case SEIS: 
          rankName = "Seis"; 
-	 break; 
+     break; 
       case SIETE: 
          rankName = "Siete"; 
-	 break; 
+     break; 
       case SOTA: 
          rankName = "Sota"; 
-	 break; 
+     break; 
       case CABALLO: 
          rankName = "Caballo"; 
-	 break; 
+     break; 
       case REY: 
          rankName = "Rey"; 
-	 break; 
+     break; 
       default: break;
    }
    return rankName;
@@ -198,6 +198,7 @@ void Card::print() const{
     
 }
 
+
 //get the numeric value of each card
 double Card::get_value() const{
     int rank = (*this).get_rank();
@@ -235,6 +236,7 @@ void Hand:: print() const{
         cards[i].print();
     }
 }
+
 
 //This return the total score of all cards in hand
 double Hand:: get_value() const{
@@ -301,6 +303,25 @@ Hand dlrs_turn(){
     }
     return h;
 }
+
+
+//This function makes fout!
+ostream& operator<<(ostream& fout, Hand h) {
+    
+    for (size_t i = 0, n = h.get_size(); i< n;++i){
+        
+        Card c = h.get_card(i);
+        string card_rank_span = c.get_spanish_rank();
+        string card_rank_eng = c.get_english_rank();
+        string card_suit_span = c.get_spanish_suit();
+        string card_suit_eng = c.get_english_suit();
+        
+        fout<< setw(14)<<card_rank_span <<" de "<<card_suit_span<<setw(12)<<"("<<card_rank_eng<<" of "<<card_suit_eng<<")."<<endl;
+    }
+    
+    return fout;
+}
+
 
 
     
