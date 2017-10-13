@@ -50,12 +50,13 @@ int main(){
         double card_value;
         double plyr_total = c1.get_value();
         
-        
-         cout<<"Your cards:"<<endl;
+        //start
+        cout<<"Your cards:"<<endl;
         c1.print();
         cout<< "Your total is "<<plyr_total<<". Do you want another card (y/n)?";
         cin>>yesno;
        
+        //if the bet exceeds the money the player has
         while (yesno == 'y' || yesno =='Y'){
             plyr_hand.add_card(Card());
             ++index_card;
@@ -79,6 +80,8 @@ int main(){
         dlr_hand.print();
         cout<<"Dealer's total is "<<dlr_total<<"."<<endl;
        
+        
+        
         if (plyr_total < 7.6)//same as <=7.5
         {
            if (dlr_total < 7.6 && plyr_total <= dlr_total)
@@ -101,6 +104,8 @@ int main(){
             cout<<"Too bad. You lose "<<bet<<".\n";
         }
     }
+    
+    //output the final results
     if (money_current <100) //same as <1
     {
         cout<<"You have $0. GAME OVER!\nCome back when you have more money.\n\nBye!\n";
