@@ -218,10 +218,13 @@ void Hand::add_card(Card cadd){
     cards.push_back(cadd);
     return;
 }
+
+//This return the card at the position index
 Card Hand::get_card(int index) const{
     return cards[index];
 }
 
+//This returns the number of cards in Hand
 size_t Hand:: get_size() const{
     return (cards.size());
 }
@@ -233,6 +236,7 @@ void Hand:: print() const{
     }
 }
 
+//This return the total score of all cards in hand
 double Hand:: get_value() const{
     double total = cards[0].get_value();
     double current;
@@ -251,19 +255,24 @@ double Hand:: get_value() const{
    ************************************************* */
 // Implemente the member functions of the Player class here.
 
+
+//Default for player class
 Player::Player(){
     money = 100;
     }
 
+//This creates a player with initial amount of money m
 Player::Player(int m){
     money = m;
 }
     
-
+//This add bet to the money that the palyer currently hold
 void Player::add_bet(int add){
     money += add;
     return;
 }
+
+//This returns the money that the player currently has
 int  Player::get_money() const{
     return money;
 }
