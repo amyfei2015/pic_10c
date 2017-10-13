@@ -1,6 +1,7 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 
 /* 
 You might or might not need these two extra libraries 
@@ -186,12 +187,63 @@ bool Card::operator < (Card card2) const {
 }
 
 
+//print card to console
+void Card::print() const{
+    string card_rank_span = (*this).get_spanish_rank();
+    string card_rank_eng = (*this).get_english_rank();
+    string card_suit_span = (*this).get_spanish_suit();
+    string card_suit_eng = (*this).get_english_suit();
+    
+     cout<< setw(14)<<card_rank_span <<" de "<<card_suit_span<<setw(12)<<"("<<card_rank_eng<<" of "<<card_suit_eng<<")."<<endl;
+    
+}
+
+//get the numeric value of each card
+double Card::get_value() const{
+    int rank = (*this).get_rank();
+    if (rank <9)
+        return rank;
+    else
+        return 0.5;
+}
 
 /* *************************************************
    Hand class
    ************************************************* */
 // Implemente the member functions of the Hand class here.
+Hand::Hand(){
+    cards;//don't know how to do with it
+}
+void Hand::add_card(Card cadd){
+    cards.push_back(cadd);
+    return;
+}
+Card Hand::get_card(int index) const{
+    return cards[index];
+}
 
+size_t Hand:: get_size() const{
+    return (cards.size());
+}
+
+//print all cards properly in hand
+void Hand:: print() const{
+    for (size_t i = 0, n = cards.size(); i< n;++i){
+        cards[i].print();
+    }
+}
+
+double Hand:: get_value() const{
+    double total = cards[0].get_value();
+    double current;
+    size_t n = cards.size();
+    for(size_t i = 1;i<n;++i)
+    {
+        current = cards[i].get_value();
+        total+= current;
+    }
+    return total;
+}
 
 
 /* *************************************************
@@ -212,11 +264,36 @@ void Player::add_bet(int add){
     money += add;
     return;
 }
-int  Player::get_money(){
+int  Player::get_money() const{
     return money;
 }
     
+/* *************************************************
+Other functions
+ ************************************************* */
+
+/*
+ fuction dealer's turn
+ input:nothing
+ output: Hand (containing all cards the dealer has for one turn)
+ algorithm: dealer continues to add card as long as the total value is less than 5.5
+ */
+Hand dlrs_turn(){
+    Hand h;
+    h.add_card(Card());
+    int card_index = 0;
+    double sum_card = h.get_card(card_index).get_value();
     
+    while(sum_card < 5.3){ //less than 5.5
+        h.add_card(Card());
+        card_index +=1;
+        int c_current =h.get_card(card_index).get_value();
+        sum_card += c_current;
+    }
+    return h;
+}
+
+
     
     
     

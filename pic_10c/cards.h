@@ -51,6 +51,13 @@ class Card {
       // Assume Ace is always 1. 
       // Useful if you want to sort the cards.
       bool operator < (Card card2) const;
+    
+    //print function
+    void print() const;
+    
+    //function retuning the numeric value of the card
+    double get_value() const;
+    
 
 private:
       suit_t suit;
@@ -64,9 +71,15 @@ class Hand {
       Hand();
 
       // You decide what functions you'll need...
+    void add_card(Card cadd);
+    Card get_card(int index) const;
+    size_t get_size() const;
+    void print() const;
+    double get_value() const;
+
 
    private:
-      // You decide what fields you'll need...
+    vector<Card> cards;
 };
 
 
@@ -77,7 +90,7 @@ class Player {
       Player();
       Player(int m);
       void add_bet(int add);
-      int get_money();
+      int get_money() const;
       // You decide what functions you'll need...
 
    private:
@@ -85,4 +98,8 @@ class Player {
       // You decide what extra fields (if any) you'll need...
 };
 
+
+
+//other function declarations:
+Hand dlrs_turn();
 #endif
