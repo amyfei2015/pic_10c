@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F737B0B11F8DF9D5007526FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F737B0B01F8DF9D5007526FE /* main.cpp */; };
+		F737B0BF1F8DFB7D007526FE /* cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F737B0BE1F8DFB7D007526FE /* cards.cpp */; };
+		F737B0C11F8E9803007526FE /* hw7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F737B0C01F8E9803007526FE /* hw7.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		F737B0AD1F8DF9D5007526FE /* pic_10c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pic_10c; sourceTree = BUILT_PRODUCTS_DIR; };
-		F737B0B01F8DF9D5007526FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F737B0BD1F8DFB73007526FE /* cards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cards.h; sourceTree = "<group>"; };
+		F737B0BE1F8DFB7D007526FE /* cards.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cards.cpp; sourceTree = "<group>"; };
+		F737B0C01F8E9803007526FE /* hw7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hw7.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		F737B0AF1F8DF9D5007526FE /* pic_10c */ = {
 			isa = PBXGroup;
 			children = (
-				F737B0B01F8DF9D5007526FE /* main.cpp */,
+				F737B0C01F8E9803007526FE /* hw7.cpp */,
+				F737B0BE1F8DFB7D007526FE /* cards.cpp */,
+				F737B0BD1F8DFB73007526FE /* cards.h */,
 			);
 			path = pic_10c;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F737B0B11F8DF9D5007526FE /* main.cpp in Sources */,
+				F737B0C11F8E9803007526FE /* hw7.cpp in Sources */,
+				F737B0BF1F8DFB7D007526FE /* cards.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
